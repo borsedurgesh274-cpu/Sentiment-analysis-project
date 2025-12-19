@@ -1,21 +1,21 @@
 import streamlit as st
 from transformers import pipeline
 
-# ---------- Page Config ----------
+# ---------------- Page Configuration ----------------
 st.set_page_config(
-    page_title="Sentiment Analysis App",
+    page_title="Sentiment Analysis | Durgesh Borse",
     page_icon="💬",
     layout="centered"
 )
 
-# ---------- Load Model (Cache) ----------
+# ---------------- Load Model (Cached) ----------------
 @st.cache_resource
 def load_model():
     return pipeline("sentiment-analysis")
 
 model = load_model()
 
-# ---------- Custom CSS ----------
+# ---------------- Custom CSS ----------------
 st.markdown("""
 <style>
 body {
@@ -31,7 +31,13 @@ body {
     text-align: center;
     font-size: 18px;
     color: #6b7280;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+}
+.author {
+    text-align: center;
+    font-size: 16px;
+    color: #2563eb;
+    margin-bottom: 30px;
 }
 .result-box {
     padding: 20px;
@@ -51,17 +57,19 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- UI ----------
-st.markdown('<div class="title">💬 Sentiment Analysis</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">NLP App using Hugging Face Transformers</div>', unsafe_allow_html=True)
+# ---------------- Header ----------------
+st.markdown('<div class="title">💬 Sentiment Analysis App</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">NLP Application using Hugging Face Transformers</div>', unsafe_allow_html=True)
+st.markdown('<div class="author">Created by <b>Durgesh Borse</b></div>', unsafe_allow_html=True)
 
+# ---------------- Input ----------------
 text = st.text_area(
-    "✍️ Enter your text:",
+    "✍️ Enter your text below:",
     height=120,
     placeholder="Example: I don't like this product"
 )
 
-# ---------- Button ----------
+# ---------------- Button ----------------
 if st.button("🔍 Analyze Sentiment"):
     if text.strip() == "":
         st.warning("⚠️ Please enter some text.")
@@ -83,10 +91,10 @@ if st.button("🔍 Analyze Sentiment"):
                 unsafe_allow_html=True
             )
 
-# ---------- Footer ----------
+# ---------------- Footer ----------------
 st.markdown("""
 <hr>
 <center>
-Built with ❤️ using <b>Streamlit</b> & <b>Transformers</b>
+© 2025 | Sentiment Analysis App by <b>Durgesh Borse</b>
 </center>
 """, unsafe_allow_html=True)
