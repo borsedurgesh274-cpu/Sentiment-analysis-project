@@ -3,7 +3,7 @@ from transformers import pipeline
 
 # ---------------- Page Configuration ----------------
 st.set_page_config(
-    page_title="Sentiment Analysis | Durgesh Borse",
+    page_title="Sentiment Analysis🐱‍👤 | Durgesh Borse",
     page_icon="💬",
     layout="centered"
 )
